@@ -2,6 +2,7 @@ package com.mycompagny.invoise;
 
 import com.mycompagny.invoise.entity.Invoice;
 import com.mycompagny.invoise.service.InvoiceService;
+import com.mycompagny.invoise.service.InvoiceServiceDaniel;
 
 import java.util.Scanner;
 
@@ -21,8 +22,19 @@ public class App
         invoice.setCustomerName(customerName);
 
 
-        InvoiceService invoiceService = new InvoiceService();
-        invoiceService.createInvoice(invoice);
+        System.out.println("Dans quelle Configuration etes vous ?");
+        int configration = sc.nextInt();
+        if (configration== 1){
+            InvoiceService invoiceService = new InvoiceService();
+            invoiceService.createInvoice(invoice);
+
+        }else if (configration== 2){
+            InvoiceServiceDaniel invoiceServiceDaniel = new InvoiceServiceDaniel();
+            invoiceServiceDaniel.createInvoice(invoice);
+
+        }
+
+
 
 
     }
