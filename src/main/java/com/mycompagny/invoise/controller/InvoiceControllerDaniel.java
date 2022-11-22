@@ -11,10 +11,6 @@ public class InvoiceControllerDaniel {
 
     public  void createInvoiceUsingWebForm(){
 
-//        System.out.println( "Le nom du Client : " );
-//        Scanner sc=new Scanner(System.in);
-
-//        String customerName =sc.nextLine();
 
         String customerName = " Monsieur Web";
         Invoice invoice = new Invoice();
