@@ -3,21 +3,30 @@ package com.mycompagny.invoise.controller;
 import com.mycompagny.invoise.entity.Invoice;
 import com.mycompagny.invoise.service.InvoiceService;
 import com.mycompagny.invoise.service.InvoiceServiceDaniel;
+import com.mycompagny.invoise.service.InvoiceServiceInterface;
 
 import java.util.Scanner;
 
-public class InvoiceControllerDaniel {
+public class InvoiceControllerDaniel implements InvoiceControllerInterface{
 
+    private InvoiceServiceInterface invoiceServiceInterface;
 
-    public  void createInvoiceUsingWebForm(){
+    public InvoiceServiceInterface getInvoiceServiceInterface() {
+        return invoiceServiceInterface;
+    }
+
+    public void setInvoiceServiceInterface(InvoiceServiceInterface invoiceServiceInterface) {
+        this.invoiceServiceInterface = invoiceServiceInterface;
+    }
+
+    public  void createInvoice(){
 
 
         String customerName = " Monsieur Web";
         Invoice invoice = new Invoice();
         invoice.setCustomerName(customerName);
 //Appel du Service
-        InvoiceServiceDaniel invoiceServiceDaniel = new InvoiceServiceDaniel();
-        invoiceServiceDaniel.createInvoice(invoice);
+        invoiceServiceInterface.createInvoice(invoice);
 
     }
 }
