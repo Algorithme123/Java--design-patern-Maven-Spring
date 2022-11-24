@@ -1,18 +1,16 @@
 package com.mycompagny.invoise.service;
 
 import com.mycompagny.invoise.entity.Invoice;
-import com.mycompagny.invoise.repository.InvoiceRepository;
-import com.mycompagny.invoise.repository.InvoiceRepositoryDanielJDBC;
 import com.mycompagny.invoise.repository.InvoiceRepositoryInterface;
 
-public class InvoiceServiceDaniel implements InvoiceServiceInterface{
+public class InvoiceServiceNumber implements InvoiceServiceInterface{
 
-    private static long  lastNumber =112;
-
+    private static long  lastNumber =0;
 
     private InvoiceRepositoryInterface invoiceRepositoryInterface;
 
-    public InvoiceRepositoryInterface getInvoiceRepositoryInterface() {
+
+    public InvoiceRepositoryInterface  getInvoiceRepositoryInterface() {
         return invoiceRepositoryInterface;
     }
 
@@ -22,7 +20,7 @@ public class InvoiceServiceDaniel implements InvoiceServiceInterface{
 
     //    Methode pour creer une facture
     public void createInvoice(Invoice invoice){
-        invoice.setNumero(String.valueOf("DNL_"+ (++lastNumber)));
+        invoice.setNumero(String.valueOf(++lastNumber));
         invoiceRepositoryInterface.create(invoice);
     }
 }

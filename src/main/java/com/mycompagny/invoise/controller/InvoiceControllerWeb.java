@@ -1,13 +1,11 @@
 package com.mycompagny.invoise.controller;
 
 import com.mycompagny.invoise.entity.Invoice;
-import com.mycompagny.invoise.service.InvoiceService;
 import com.mycompagny.invoise.service.InvoiceServiceInterface;
 
-import java.util.Scanner;
+public class InvoiceControllerWeb implements InvoiceControllerInterface{
 
-public class InvoiceController  implements InvoiceControllerInterface{
-
+    private InvoiceServiceInterface invoiceServiceInterface;
 
     public InvoiceServiceInterface getInvoiceServiceInterface() {
         return invoiceServiceInterface;
@@ -17,18 +15,14 @@ public class InvoiceController  implements InvoiceControllerInterface{
         this.invoiceServiceInterface = invoiceServiceInterface;
     }
 
-    private InvoiceServiceInterface invoiceServiceInterface;
     public  void createInvoice(){
 
-        System.out.println( "Le nom du Client : " );
-        Scanner sc=new Scanner(System.in);
-        String customerName =sc.nextLine();
 
+        String customerName = " Monsieur Web";
         Invoice invoice = new Invoice();
         invoice.setCustomerName(customerName);
 //Appel du Service
         invoiceServiceInterface.createInvoice(invoice);
 
     }
-
 }
